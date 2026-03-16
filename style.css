@@ -24,7 +24,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 8%;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.9);
     border-bottom: 1px solid rgba(229, 9, 20, 0.4);
 }
 
@@ -53,6 +53,7 @@ body {
 .hero {
     height: 90vh;
     background: url("Background.jpg") center/cover no-repeat;
+    background-attachment: fixed;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -85,7 +86,7 @@ body {
 
 .hero p {
     font-size: 18px;
-    color: #ccc;
+    color: #eee;
     margin-bottom: 30px;
 }
 
@@ -189,25 +190,6 @@ body {
     color: #e50914;
 }
 
-.feature-box p {
-    color: #bbb;
-}
+.feature
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #000;
-    color: #777;
-}
-
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .navbar {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
 

@@ -6,7 +6,7 @@
 }
 
 html {
-    scroll-behavior: smooth; /* ✅ smooth scroll added */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -16,61 +16,63 @@ body {
     overflow-x: hidden;
 }
 
-/* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 20px 8%;
+    align-items: center;
+    height: 85px;
+    padding: 0 30px;
     background: rgba(0,0,0,0.5);
     backdrop-filter: blur(12px);
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     text-decoration: none;
-    padding: 8px 14px;
-    border-radius: 50px;
     color: #e50914;
     font-weight: bold;
+    font-size: 20px;
+    height: 100%;
+}
+
+.logo img {
+    height: 50px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 20px;
     align-items: center;
 }
 
 .nav-links a {
     text-decoration: none;
-    padding: 8px 14px;
+    padding: 10px 18px;
     border-radius: 50px;
     color: #ddd;
+    font-size: 17px;
     transition: 0.3s;
 }
 
 .nav-links a:hover {
     color: #fff;
     background: rgba(229, 9, 20, 0.15);
+    transform: translateY(-2px);
 }
 
-/* SEARCH */
 .search-container {
     display: flex;
     align-items: center;
     padding: 6px 10px;
-    background: transparent;
-    border: none;
 }
 
 .search-container span {
     cursor: pointer;
     padding: 8px 14px;
     border-radius: 50px;
-    transition: 0.3s;
-}
-
-.search-container span:hover {
-    background: rgba(229, 9, 20, 0.15);
 }
 
 #searchInput {
@@ -89,7 +91,6 @@ body {
     margin-left: 5px;
 }
 
-/* HERO */
 .hero {
     height: 90vh;
     display: flex;
@@ -100,78 +101,97 @@ body {
 
 .hero h1 {
     color: #e50914;
+    margin-bottom: 10px;
+}
+
+.hero-sub {
+    color: #ccc;
     margin-bottom: 20px;
 }
 
-/* SEARCH BOX */
+/* ✅ GLASS REMOVED HERE */
 .search-box {
     display: flex;
     gap: 10px;
+    padding: 10px;
+    border-radius: 12px;
 }
 
 .search-box select {
-    padding: 10px;
+    padding: 12px;
     background: #111;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 .search-box button {
-    padding: 10px 20px;
+    padding: 12px 22px;
     background: #e50914;
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: 8px;
+    font-weight: bold;
 }
 
-/* MOVIES */
+/* MOVIE GRID */
 .movie-grid {
     display: flex;
-    justify-content: flex-start; /* ✅ FIXED */
     gap: 20px;
     overflow-x: auto;
-    padding: 20px 40px;
+    padding: 20px;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
-/* ✅ ADDED (prevents cutting from sides) */
-.movie-grid::before,
-.movie-grid::after {
-    content: "";
-    flex: 0 0 20px;
+.movie-grid::-webkit-scrollbar {
+    display: none;
 }
 
+/* MOVIE CARD */
 .movie-card {
     min-width: 180px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
 }
 
 .movie-card:hover {
-    transform: scale(1.12) translateY(-10px);
-    transform-origin: center;
-    z-index: 10;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+    transform: scale(1.15);
 }
 
 .movie-card img {
     width: 100%;
+    height: 260px;
+    object-fit: cover;
     border-radius: 10px;
 }
 
+/* ❤️ BUTTON BELOW IMAGE */
+.movie-card button {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.movie-card button span {
+    display: block;
+    font-size: 12px;
+    color: #ccc;
+}
+
+/* CENTER TITLE */
 .recommendations {
-    padding: 50px 8%;
     text-align: center;
 }
 
 .recommendations h2 {
-    display: block;
-    margin: 0 auto 20px;
+    margin-top: 20px;
 }
 
-/* ABOUT */
 .about-section {
     padding: 60px 8%;
     text-align: center;
@@ -179,44 +199,119 @@ body {
 
 .about-container {
     display: flex;
-    justify-content: center;
     gap: 20px;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 .about-box {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 25px;
-    border-radius: 12px;
     width: 280px;
+    padding: 25px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 12px;
 }
 
-.about-box h3 {
-    margin-bottom: 10px;
-}
-
-.about-box p {
-    color: #ccc;
-    font-size: 14px;
-}
-
-/* FOOTER ✅ CENTERED */
 footer {
     text-align: center;
     padding: 20px;
     background: rgba(0,0,0,0.6);
-    color: #ccc;
 }
 
-/* HIDE SCROLLBAR */
-::-webkit-scrollbar {
+.modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+}
+
+.dropdown {
+    background: #111;
+    position: absolute;
     display: none;
 }
-
-* {
-    scrollbar-width: none;
+.suggestions-box {
+    position: absolute;
+    top: 40px;
+    background: #111;
+    width: 200px;
+    border-radius: 8px;
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
 }
-/* MODAL */
+
+.suggestions-box div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestions-box div:hover {
+    background: #e50914;
+}
+/* ABOUT SECTION */
+.about-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.about-box {
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
+    width: 280px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+/* 🔥 HOVER EFFECT */
+.about-box:hover {
+    transform: translateY(-10px) scale(1.03);
+    border: 1px solid rgba(255, 80, 80, 0.6);
+    box-shadow: 0 0 15px rgba(255, 80, 80, 0.4);
+}
+
+/* TEXT */
+.about-box p {
+    margin-top: 10px;
+    line-height: 1.6;
+    font-size: 14px;
+    color: #ddd;
+}
+/* PROFILE MENU FIX */
+.profile-menu {
+    position: relative;
+}
+
+/* DROPDOWN FIX */
+.dropdown {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: #111;
+    border-radius: 8px;
+    padding: 10px 0;
+    display: none;
+    min-width: 140px;
+    z-index: 1000;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown a:hover {
+    background: #e50914;
+}
+
+/* MODAL FIX */
 .modal {
     display: none;
     position: fixed;
@@ -224,40 +319,47 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.7);
+
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+
+    background: rgba(0,0,0,0.7);
+    z-index: 2000;
 }
 
 .modal-content {
     background: #111;
     padding: 25px;
     border-radius: 10px;
-    width: 300px;
     text-align: center;
 }
 
 .modal-content input {
+    display: block;
     width: 100%;
-    padding: 10px;
     margin: 10px 0;
+    padding: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
 }
 
 .modal-content button {
-    width: 100%;
-    padding: 10px;
+    padding: 10px 20px;
     background: #e50914;
-    color: white;
     border: none;
-    border-radius: 5px;
+    color: white;
     cursor: pointer;
+    border-radius: 6px;
 }
 
 .close-btn {
+    cursor: pointer;
     float: right;
     font-size: 20px;
+}
+/* FIX CURSOR */
+.signin-btn,
+.search-container span,
+.dropdown a {
     cursor: pointer;
 }
